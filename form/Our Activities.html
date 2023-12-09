@@ -1,1 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Tours & Travels</title>
+    <link rel="stylesheet" href="../css/Our Activities.css">
+</head>
+<body>
+  
+<section class="container">
+      <h1>Our Activities</h1>
+      
+      <form action="" method="post" class="form" onsubmit="showFormData(); return false;">
+        <div class="input-box">
+          <label for="fullname_th">ชื่อ - นามสกุล (ภาษาไทย):</label>
+          <input type="text" placeholder="กรุณาใส่ชื่อ - นามสกุล (ภาษาไทย) เท่านั้น" id="fullname_th" name="fullname_th" required pattern="[\u0E01-\u0E4F\s]+">
+      </div>
+      
+      <div class="input-box">
+        <label for="fullname_en">ชื่อ - นามสกุล (ภาษาอังกฤษ):</label>
+        <input type="text" placeholder="กรุณาใส่ชื่อ - นามสกุล (ภาษาอังกฤษ) เท่านั้น" id="fullname_en" name="fullname_en" required pattern="[A-Za-z\s]+">
+    </div>    
+      
+    <div class="gender-box">
+        <h2>ระบุเพศ</h2>
+        <div class="gender">
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">male</label>
+        </div>
+        <div class="gender">
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">female</label>
+        </div>
+        <div class="gender">
+            <input type="radio" id="other" name="gender" value="other" required>
+            <label for="other">ไม่ระบุเพศ</label>
+        </div>
+    </div>
+
+      <div class="input-box">
+        <label for="student_id">รหัสนักศึกษา:</label>
+        <input type="text" placeholder="กรุณาใส่รหัสนักศึกษา 10 ตัว" id="student_id" name="student_id" maxlength="10" required>
+    </div>    
+
+      <div class="input-box">
+        <label for="faculty">คณะที่ศึกษา:</label>
+        <input list="browsers" placeholder="กรุณาเลือกคณะ" id="faculty" name="faculty" required>
+        <datalist id="browsers">
+          <option value="คณะนิติศาสตร์">
+          <option value="คณะพาณิชยศาสตร์และการบัญชี">
+          <option value="คณะรัฐศาสตร์">
+          <option value="คณะเศรษฐศาสตร์">
+          <option value="คณะสังคมสงเคราะห์ศาสตร์">
+          <option value="คณะสังคมวิทยาและมานุษยวิทยา">
+          <option value="คณะศิลปศาสตร์">
+          <option value="คณะวารสารศาสตร์และสื่อสารมวลชน">
+          <option value="คณะวิทยาศาสตร์และเทคโนโลยี">
+          <option value="คณะวิศวกรรมศาสตร์">
+          <option value="คณะสถาปัตยกรรมและการผังเมือง">
+          <option value="คณะศิลปกรรมศาสตร์">
+          <option value="คณะแพทยศาสตร์">
+          <option value="คณะสหเวชศาสตร์">
+          <option value="คณะทันตแพทยศาสตร์">
+          <option value="คณะพยาบาลศาสตร์">
+          <option value="คณะสาธารณสุขศาสตร์">
+          <option value="คณะเภสัชศาสตร์">
+          <option value="คณะวิทยาการเรียนรู้และศึกษาศาสตร์">
+        </datalist>
+      </div>
+
+      <div class="input-box">
+        <label for="email">ที่อยู่อีเมล (Email address):</label>
+        <input type="email" placeholder="กรุณาใส่ที่อยู่อีเมล @dome เท่านั้น" id="email" name="email" required>
+    </div>    
+
+      <div class="input-box">
+        <label for="dob">วัน/เดือน/ปีเกิด:</label>
+        <input type="date" id="dob" name="dob" required>
+      </div>
+
+      <div class="input-box">
+          <label for="comments">ข้อเสนอแนะ:</label>
+          <input type="text" placeholder="กรุณาใส่ข้อเสนอแนะ (ถ้ามี)" id="comments" name="comments">
+      </div>
+      
+      <div class="submit-box">
+        <input type="submit" value="Submit">
+      </div>
+
+      <div class="submitted-data" style="display: none;">
+        <h2>ข้อมูลที่รับมาจากแบบฟอร์ม</h2>
+        <p id="submitted-info"></p>
+    </div>
+
+    <script src="function.js"></script>
+  </section>
+
+  <script>
+  // ลบอักขระที่ไม่ใช่ตัวเลข
+    document.getElementById('student_id').addEventListener('input', function() {
+        this.value = this.value.replace(/\D/g, ''); 
+
+        // ตรวจสอบช่วงปี พ.ศ. 59-66
+        const yearDigits = this.value.slice(0, 2);
+        const year = parseInt(yearDigits, 10);
+
+        if (year < 56 || year > 66) {
+            this.setCustomValidity('รหัสนักศึกษาต้องอยู่ในช่วง พ.ศ 59-66');
+        } else {
+            this.setCustomValidity('');
+        }
+    });
+
+    // แปลงที่อยู่อีเมลเป็นตัวพิมพ์เล็กทั้งหมด
+    document.getElementById('email').addEventListener('input', function() {
+        const email = this.value.toLowerCase();
+
+        // กำหนดให้ใช้ @dome.tu.ac.th เท่านั้น
+        if (!email.endsWith('@dome.tu.ac.th')) {
+            this.setCustomValidity('กรุณาใช้ @dome.tu.ac.th ของมหาลัยเท่านั้น');
+        } else {
+            this.setCustomValidity('');
+        }
+    });
+</script>
+    
+</body>
+</html>
 
