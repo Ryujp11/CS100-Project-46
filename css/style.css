@@ -1,99 +1,170 @@
-@import url("https://fonts.google.com/specimen/Niramit?selection.family=Niramit");
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Niramit', sans-serif;
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Space Grotesk', sans-serif;
+	text-decoration: none;
+}
+/* CSS */
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-body{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: radial-gradient(#3c3253,#0f051d);
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
 }
 
-.container{
-    position: relative;
-    max-width: 700px;
-    width: 100%;
-    background: #FFF;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-  
-.container h1{
-    font-size: 1.5rem;
-    color: #333;
-    font-weight: 700;
-    text-align: center;
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
-.container .form{
-    font-size: 100%;
-    margin-top: 30px;
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }
-
-.form .input-box{
-    width: 100%;
-    margin-bottom: 20px;
+.team{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background: radial-gradient(#281c3e,#0f051d);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
-
-.input-box label{
-    font-weight: 700;
-    color: #333;
+.team-content{
+	width: 100%;
+	max-width: 1350px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+	align-items: center;
+	gap: 2rem;
+	text-align: center;
+	margin-top: 4rem;
 }
-
-.form .input-box input{
-    position: relative;
-    height: 50px;
-    width: 100%;
-    outline: none;
-    font-size: 1rem;
-    color: #575757;
-    margin-top: 8px;
-    border: 1px solid #c9c9c9;
-    border-radius: 6px;
-    padding: 0 15px;
+.team-content img{
+	width: 50%;
+	height: auto;
+	border-radius: 15px;
+	margin-bottom: 15px;
 }
-
-.gender-box{
-    margin-bottom: 20px;
+.center h1{
+	color: #fff;
+	font-size: 4rem;
+	text-align: center;
 }
-
-.gender-box h2{
-    margin-bottom: 8px;
-    font-size: 100%;
-    color: #333;
-    font-weight: 700;
+.box{
+	padding: 16px;
+	background: #1b1229;
+	border-radius: 15px;
+	transition: all .38s ease;
 }
-
-.submit-box input[type="submit"] {
-    background-color: #5656B9;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.box h3{
+	font-size: 23px;
+	font-weight: 600;
+	color: #fff;
+	margin-bottom: 8px;
 }
-
-.submit-box input[type="submit"]:hover {
-    background-color: #7071E8;
-    color: rgb(224, 224, 224);
+.box h5{
+	font-size: 15px;
+	font-weight: 600;
+	color: #b7b4bb;
+	margin-bottom: 15px;
+	letter-spacing: 2px;
 }
-
-.input-box input:focus {
-    border: 2px solid ;
+.icons i{
+	display: inline-block;
+	color: #fff;
+	font-size: 20px;
+	margin: 0 8px;
+	transition: all .38s ease;
 }
-
-.submitted-data h2{
-    font-size: 1.5rem;
-    color: #333;
-    font-weight: 600;
-    text-align: center;
-    margin-top: 10px;
+.icons i:hover{
+	transform: scale(1.2);
+}
+.box:hover{
+	transform: translateY(-10px);
+	cursor: pointer;
+}
+@media(max-width: 1080px){
+	.team{
+		width: 100%;
+		height: auto;
+		padding: 90px 2%;
+	}
+	.center h1{
+		font-size: 3.2rem;
+	}
+    .box h3{
+        font-size: 20px;
+    }
+    .box h5{
+        font-size: 15px;
+    }
+}
+@media(max-width: 500px){
+	.team{
+		width: 100%;
+		height: auto;
+		padding: 90px 2%;
+	}
+	.center h1{
+		font-size: 3.2rem;
+	}
+    .box h3{
+        font-size: 15px;
+    }
+    .box h5{
+        font-size: 10px;
+    }
 }
