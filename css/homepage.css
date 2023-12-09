@@ -1,11 +1,11 @@
-*{
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	font-family: 'Space Grotesk', sans-serif;
-	text-decoration: none;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;
+  text-decoration: none;
 }
-/* CSS */
+
 .button-85 {
   padding: 0.6em 2em;
   border: none;
@@ -71,6 +71,7 @@
   top: 0;
   border-radius: 10px;
 }
+
 .team{
 	position: relative;
 	width: 100%;
@@ -81,6 +82,7 @@
 	justify-content: center;
 	flex-direction: column;
 }
+
 .team-content{
 	width: 100%;
 	max-width: 1350px;
@@ -92,29 +94,34 @@
 	text-align: center;
 	margin-top: 4rem;
 }
+
 .team-content img{
 	width: 50%;
 	height: auto;
 	border-radius: 15px;
 	margin-bottom: 15px;
 }
+
 .center h1{
 	color: #fff;
 	font-size: 4rem;
 	text-align: center;
 }
+
 .box{
 	padding: 16px;
 	background: #1b1229;
 	border-radius: 15px;
 	transition: all .38s ease;
 }
+
 .box h3{
 	font-size: 23px;
 	font-weight: 600;
 	color: #fff;
 	margin-bottom: 8px;
 }
+
 .box h5{
 	font-size: 15px;
 	font-weight: 600;
@@ -122,6 +129,7 @@
 	margin-bottom: 15px;
 	letter-spacing: 2px;
 }
+
 .icons i{
 	display: inline-block;
 	color: #fff;
@@ -129,13 +137,16 @@
 	margin: 0 8px;
 	transition: all .38s ease;
 }
+
 .icons i:hover{
 	transform: scale(1.2);
 }
+
 .box:hover{
 	transform: translateY(-10px);
 	cursor: pointer;
 }
+
 @media(max-width: 1080px){
 	.team{
 		width: 100%;
@@ -152,6 +163,7 @@
         font-size: 15px;
     }
 }
+
 @media(max-width: 500px){
 	.team{
 		width: 100%;
